@@ -22,10 +22,10 @@
     .btn-primary:hover, .btn-primary:focus{background-color: #330099; box-shadow: 0 24px 16px -16px rgba(73,8,154,0.15);}
     .btn-primary:active{background-color: #000033!important; box-shadow: none!important;}
     .btn-rounded{padding-right: 1.5em; padding-left:1.5em; border-radius: 1.5em;}
-    @media (min-width: 544px) {html, body{font-size:1.125rem;}}
-    @media (min-width: 768px) {html, body{font-size:1.25rem;}}
-    @media (min-width: 992px) {html, body{font-size:1.375rem;}}
-    @media (min-width: 1200px) {html, body{font-size:1.5rem;}}
+    @media (min-width: 544px) {.result-text{font-size:1.125rem;}}
+    @media (min-width: 768px) {.result-text{font-size:1.25rem;}}
+    @media (min-width: 992px) {.result-text{font-size:1.375rem;}}
+    @media (min-width: 1200px) {.result-text{font-size:1.5rem;}}
   </style>
 </head>
 <body>
@@ -35,13 +35,13 @@
       <div class="row">
         <div v-if="show" class="result col-12 text-center">
           <!-- <h1>{{message}}</h1> -->
-          <p>
+          <p class="result-text">
             <span v-if="what">Разработать дизайн <strong>{{ what }}</strong></span>
             <span v-if="who">для <strong>{{ who }}</strong></span><span v-if="goal"><!-- , подчеркнув <strong>{{ goal }}</strong></span> -->
           </p>
         </div>
         <div class="col-12 text-center">
-          <button @click="generate" type="button" class="btn btn-primary btn-rounded">Сгенерировать тему <i class="fas fa-angle-right"></i></button>
+          <button @click="generate" type="button" class="btn btn-primary btn-rounded py-2">Сгенерировать тему <i class="fas fa-angle-right"></i></button>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
       <hr>
       <div class="row">
         <div class="col-12 col-sm-6 text-center text-sm-left">
-          <p>© 2018 «Генератор темы для проектов»</p>
+          <p>© <a href="#" data-toggle="modal" data-target="#about">«Генератор темы для проектов»</a>, 2018</p>
         </div>
         <div class="col-12 col-sm-6 text-center text-sm-right">
           <p>Разработал <a href="https://pavelmednikov.com" target="_blank">Павел Медников</a></p>
@@ -60,6 +60,24 @@
       </div>
     </div>
   </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutLabel">О проекте</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Нет клиентов и нечем заняться? Может быть, хочется просто улучшить свои профессиональные навыки, а идей проектов нет? Сгенерируй случайную тему и пополни портфолио новой работой.</p>
+          <p>С помощью нескольких десятков переменных получается около тысячи различных тем для практики. Их должно хватить на долгое время.</p>
+        </div>
+      </div>
+    </div>
+  </div>
   
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
